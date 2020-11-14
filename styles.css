@@ -1,0 +1,206 @@
+/* reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* reset end */
+
+/* 
+•	Font: Open Sans
+•	Title color: #CE0E2D
+•	Standard text color: #2D2A26
+•	Headers text color: #758692` */
+
+/* global requested style */
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: #2D2A26;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #758692;
+}
+
+.title {
+	color: #CE0E2D;
+}
+
+/* global requested style end */
+
+
+/* desktop style */
+/* just for now */
+/* tr,
+td,
+th {
+	border: solid 1px black;
+} */
+
+/*  */
+
+.main-body {
+	width: 100%;
+	display: flex;
+	height: 100%;
+	/* test colors */
+	/* background-color: cadetblue; */
+}
+
+.side-panel {
+
+	height: 100px;
+	width: 20%;
+	/* test colors */
+	/* background-color: burlywood; */
+}
+
+.content {
+	width: 60%;
+}
+
+/* desktop style end */
+
+
+
+
+
+/* mobile */
+/*  */
+/* mobile end */
