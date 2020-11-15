@@ -10,39 +10,49 @@
 // a.	Each car should have rent history.
 // b.	Rent history should include: Date from, Date to, Number of days rented, Miles Driven, Price per day, Total Price (days rented * price per day), Total Price with VAT (Total Price + 21%)
 
-// issaugoti local storage?
+// local storage?
 // is kur bus paimamas sarasas
 // gal geriau issaugoti kur nors, kad neistrintu su cookies
 // mass delete?
 // how add new works? new window or just a modal pop up? new window is tiring. refreshes will cause trouble(Shouldnt as data is being saved and is not static)?
 // it would work nicer with react
 // plan: build one vanilla and then if has time build one on react. double the fun.
+// comments?
 
 var cars = [{
-        "id": 1,
-        "manufacturer": "Toyota",
-        "model": "Yaris",
-        "manufacturingYear": new Date('2000-01-01'),
-        "capacity": 5,
-        "dayPrice": 6,
-        "rentedFrom": new Date('2000-01-01'),
-        "rentedTo": new Date('2000-01-01'),
-        //extra stuff
-        "plateNumber": "abc123",
-        rentHistory: [{
-            "dateFrom": new Date('2000-01-01'),
-            "dateTo": new Date('2000-01-01'),
-            "daysRented": 5,
-            "milesDriven": 5,
-            "dayPrice": 5,
-
-        }]
+    "id": 1,
+    "manufacturer": "Toyota",
+    "model": "Yaris",
+    "manufacturingYear": new Date('2000-01-01'),
+    "capacity": 5,
+    "dayPrice": 6,
+    "rentedFrom": new Date('2000-01-01'),
+    "rentedTo": new Date('2000-01-01'),
+    //extra stuff
+    "plateNumber": "abc123",
+    rentHistory: [
+        {
+        "dateFrom": new Date('2000-01-01'),
+        "dateTo": new Date('2000-01-01'),
+        "daysRented": 5,
+        "milesDriven": 5,
+        "dayPrice": 5,
     },
-
-
+    {
+        "dateFrom": new Date('2001-01-01'),
+        "dateTo": new Date('2001-01-01'),
+        "daysRented": 5,
+        "milesDriven": 5,
+        "dayPrice": 5,
+    },
+]
+}, 
 
 ]
 console.log(cars)
+
+
+
 
 function generateList() {
     //very much generate
@@ -57,7 +67,7 @@ function addNewCar() {
 }
 
 function editCar() {
-// new page? or just a modal?
+    // new page? or just a modal?
 
 }
 
@@ -65,13 +75,19 @@ function editCarState() {
     // and make it visible that is rented or not
 }
 
-function history(params) {
-
+function addToHistory(params) {
+// add to specific part of arrObj a history block.
 }
 
+function showHistory(params) {
+    // call a modal? open in new window?
+}
 
 // extra function not included in the task
 function deleteCar() {
-
+// delete from arrObj a specific object
+}
+function massDelete(params) {
+    
 }
 //duplicate alert?

@@ -35,50 +35,65 @@
             <!-- lots of cars? add pagination? -->
             <!-- add filters and/or search? -->
             <!-- filters- good idea -->
-            <table class="table">
+            <!-- bootstrap labai lagina ar tiesiog messy animation? -->
+            <!-- edit in rows? -->
+            <!-- confirmation for deletes -->
+
+            <button class="delete">Delete</button>
+            <button class="new">New</button>
+
+
+            <table class="table table-hover" style="border-collapse:collapse;">
                 <thead>
                     <tr>
                         <!--too much stuff, minimise  -->
-                        <th scope="col">car image?</th>
-                        <th scope="col">Car Maker</th>
-                        <th scope="col">Car Model</th>
-                        <th scope="col">Manufacturing Year</th>
-                        <th scope="col">Number of seats</th>
-                        <th scope="col">Price per day</th>
+                        <th>car image?</th>
+                        <th>Car Maker</th>
+                        <th>Car Model</th>
+                        <th>Car Plate</th>
+                        <th>Price per day</th>
                         <!-- -->
-                        <th>Rented Date From</th>
-                        <th>Rented Date To</th>
+                        <!-- <th>Rented Date From</th>
+                        <th>Rented Date To</th> -->
                         <!-- or -->
                         <th>Rented</th>
                         <!--checkbox -->
+
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse"
-                        data-parent="#accordion1" href="#collapseOne">
-                        <td class="expand-button"></td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td><input type="checkbox"></td>
-
+                    <tr>
+                        <td>1</td>
+                        <td>Toyota</td>
+                        <td>Yaris</td>
+                        <td>ABC-123</td>
+                        <td> 5$ </td>
+                        <td>Rented for 3 more days.</td>
+                        <td><button data-target="#demo1" class="accordion-toggle"
+                                data-toggle="collapse">details</button></td>
                     </tr>
-                    <tr class="hide-table-padding">
-                        <td></td>
-                        <td colspan="7">
-                            <div id="collapseOne" class="collapse in p-3">
-                                <div class="row">
-                                    hello
-                                </div>
+                    <tr class="p">
+                        <td colspan="9" class="hiddenRow">
+                            <div class="accordian-body collapse " id="demo1">
+                                <p>Manufacturing Year</p>
+                                <p>Number of seats</p>
+                                <p>Rented Date From</th>
+                                    <p>Rented Date To</p>
+                                    <button>delete </button>
+                                    <button>edit </button>
+                                    <!-- when rented do thing -->
+                                    <!-- show when the car has to be reurned, how many daus left on rent -->
+                                    <!-- seperate button for when a car is rented? no need to edit the main info then -->
+                                    <!-- 2 comumns, button  top right corner -->
                             </div>
                         </td>
                     </tr>
 
+
+
+
+                </tbody>
             </table>
         </div>
         <div class="side-panel right"></div>
