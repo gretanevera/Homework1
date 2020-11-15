@@ -143,6 +143,9 @@ table {
 •	Standard text color: #2D2A26
 •	Headers text color: #758692` */
 
+
+
+
 /* global requested style */
 body {
 	font-family: 'Open Sans', sans-serif;
@@ -160,18 +163,13 @@ h6 {
 
 .title {
 	color: #CE0E2D;
+	font-size: 50px;
 }
 
 /* global requested style end */
 
 
 /* desktop style */
-/* just for now */
-/* tr,
-td,
-th {
-	border: solid 1px black;
-} */
 
 
 .main-body {
@@ -194,20 +192,57 @@ th {
 	width: 60%;
 }
 
-/* desktop style end */
 .hiddenRow {
-    padding: 0 4px !important;
-    background-color: #eeeeee;
-    font-size: 13px;
-}
-.accordian-body span{
-	color:#a2a2a2 !important;
+	padding: 0 4px !important;
+	background-color: #eeeeee;
+	font-size: 13px;
 }
 
+.accordian-body span {
+	color: #a2a2a2 !important;
+}
+
+.panels {
+	display: flex;
+
+}
+
+.row-panel {
+	width: 50%;
+}
+
+.detail-buttons {
+	justify-content: flex-end;
+	width: 100%;
+}
+
+/* .delete-button-single {
+	float: right;
+} */
+
+.right-bottom-row-panel {
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+
+}
+
+.left-bottom-row-panel {
+	width: 50%;
+	display: flex;
+	justify-content: flex-start;
+
+}
+
+.rented{
+	background-color: coral;
+}
 
 
 
 
+
+/* desktop style end */
 /* mobile */
 /*  */
 /* mobile end */
