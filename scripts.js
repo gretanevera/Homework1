@@ -169,7 +169,7 @@ console.log(car)
 
 function generateList() {
     console.log('hello')
-    //very much generate
+ 
     //pasiimti is backo (koks jis bus?) ir sumesti i lentete
     let tbody = document.getElementById("tableBody");
 
