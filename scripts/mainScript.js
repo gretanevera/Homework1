@@ -1,223 +1,114 @@
-// The solution should have:
-// 1.	Stage 1: List of cars
-// a.	Users should be able to see list of cars in the fleet
-// b.	Users should be able to add new cars
-// c.	Users should be able to edit existing entries in the list
-// d.	Users should be able change car state: Available or Rented
-// e.	Users should be able to clearly see if car is rented or not
-// f.	Car should have these properties: Unique ID, Car Maker, Car Model, Manufacturing Year, Number of seats, Price per day, Rented Date From, Rented Date To
-// 2.	Stage 2: Rent history
-// a.	Each car should have rent history.
-// b.	Rent history should include: Date from, Date to, Number of days rented, Miles Driven, Price per day, Total Price (days rented * price per day), Total Price with VAT (Total Price + 21%)
-
-// local storage?
-// is kur bus paimamas sarasas
-// gal geriau issaugoti kur nors, kad neistrintu su cookies
-// mass delete?
-// how add new works? new window or just a modal pop up? new window is tiring. refreshes will cause trouble(Shouldnt as data is being saved and is not static)?
-// it would work nicer with react
-// plan: build one vanilla and then if has time build one on react. double the fun.
-// comments?
-
 let car = [{
         "id": 1,
         "manufacturer": "Toyota",
         "model": "Yaris",
-        "manufacturingYear": new Date('2000-01-01'),
+        "manufacturingYear": 2000,
         "capacity": 5,
         "dayPrice": 6,
-        "rentedFrom": new Date('2000-01-01'),
-        "rentedTo": new Date('2000-01-01'),
+        // "rentedFrom": new Date('2000-01-01'), //delete theese and use history?
+        // "rentedTo": new Date('2000-02-01'),
         //extra stuff
         "plateNumber": "abc123",
         "rented": true,
         rentHistory: [{
-                "dateFrom": new Date('2000-01-01'),
-                "dateTo": new Date('2000-01-01'),
+                "dateFrom": new Date('2020-10-25'),
+                "dateTo": new Date('2020-11-25'),
                 "daysRented": 5,
                 "milesDriven": 5,
                 "dayPrice": 5,
             },
             {
-                "dateFrom": new Date('2001-01-01'),
-                "dateTo": new Date('2001-01-01'),
-                "daysRented": 5,
-                "milesDriven": 5,
-                "dayPrice": 5,
+                "dateFrom": new Date('2001-02-01'),
+                "dateTo": new Date('2001-03-01'),
+                "daysRented": 6,
+                "milesDriven": 6,
+                "dayPrice": 6,
             },
         ]
     },
     {
         "id": 2,
-        "manufacturer": "lexus",
-        "model": "Yaris",
-        "manufacturingYear": new Date('2000-01-01'),
+        "manufacturer": "BMW",
+        "model": "x5",
+        "manufacturingYear": 2020,
         "capacity": 5,
-        "dayPrice": 6,
-        "rentedFrom": new Date('2000-01-01'),
-        "rentedTo": new Date('2000-01-01'),
+        "dayPrice": 26,
         //extra stuff
-        "plateNumber": "abc123",
+        "plateNumber": "C00L",
         "rented": false,
         rentHistory: [{
-                "dateFrom": new Date('2000-01-01'),
-                "dateTo": new Date('2000-01-01'),
+                "dateFrom": new Date('2020-01-13'),
+                "dateTo": new Date('2020-02-01'),
                 "daysRented": 5,
                 "milesDriven": 5,
-                "dayPrice": 5,
+                "dayPrice": 35,
             },
             {
-                "dateFrom": new Date('2001-01-01'),
-                "dateTo": new Date('2001-01-01'),
-                "daysRented": 5,
-                "milesDriven": 5,
-                "dayPrice": 5,
+                "dateFrom": new Date('2001-02-01'),
+                "dateTo": new Date('2001-03-01'),
+                "daysRented": 6,
+                "milesDriven": 6,
+                "dayPrice": 6,
             },
         ]
     },
-    {
-        "id": 3,
-        "manufacturer": "mazda",
-        "model": "Yaris",
-        "manufacturingYear": new Date('2000-01-01'),
-        "capacity": 5,
-        "dayPrice": 6,
-        "rentedFrom": new Date('2000-01-01'),
-        "rentedTo": new Date('2000-01-01'),
-        //extra stuff
-        "plateNumber": "abc123",
-        "rented": true,
-        rentHistory: [{
-                "dateFrom": new Date('2000-01-01'),
-                "dateTo": new Date('2000-01-01'),
-                "daysRented": 5,
-                "milesDriven": 5,
-                "dayPrice": 5,
-            },
-            {
-                "dateFrom": new Date('2001-01-01'),
-                "dateTo": new Date('2001-01-01'),
-                "daysRented": 5,
-                "milesDriven": 5,
-                "dayPrice": 5,
 
-            },
-        ]
-    },
-    {
-        "id": 4,
-        "manufacturer": "BMW",
-        "model": "Yaris",
-        "manufacturingYear": new Date('2000-01-01'),
-        "capacity": 5,
-        "dayPrice": 6,
-        "rentedFrom": new Date('2000-01-01'),
-        "rentedTo": new Date('2000-01-01'),
-        //extra stuff
-        "plateNumber": "abc123",
-        "rented": true,
-        rentHistory: [{
-                "dateFrom": new Date('2000-01-01'),
-                "dateTo": new Date('2000-01-01'),
-                "daysRented": 5,
-                "milesDriven": 5,
-                "dayPrice": 5,
-            },
-            {
-                "dateFrom": new Date('2001-01-01'),
-                "dateTo": new Date('2001-01-01'),
-                "daysRented": 5,
-                "milesDriven": 5,
-                "dayPrice": 5,
-            },
-        ]
-    },
-    {
-        "id": 5,
-        "manufacturer": "BMW",
-        "model": "Yaris",
-        "manufacturingYear": new Date('2000-01-01'),
-        "capacity": 5,
-        "dayPrice": 6,
-        "rentedFrom": new Date('2000-01-01'),
-        "rentedTo": new Date('2000-01-01'),
-        //extra stuff
-        "plateNumber": "abc123",
-        "rented": true,
-        rentHistory: [{
-                "dateFrom": new Date('2000-01-01'),
-                "dateTo": new Date('2000-01-01'),
-                "daysRented": 5,
-                "milesDriven": 5,
-                "dayPrice": 5,
-            },
-            {
-                "dateFrom": new Date('2001-01-01'),
-                "dateTo": new Date('2001-01-01'),
-                "daysRented": 5,
-                "milesDriven": 5,
-                "dayPrice": 5,
-            },
-        ]
-    },
 
 ]
 let uniqueId = 5;
-console.log(car)
 
-
-function generateList() {
-    console.log('hello')
-
-    //pasiimti is backo (koks jis bus?) ir sumesti i lentete
+function generateList(list) {
     let tbody = document.getElementById("tableBody");
 
     let tr
-    for (let i = 0; i < car.length; i++) {
+    for (let i = 0; i < list.length; i++) {
 
-        if (car[i].rented == true) {
-            tr = "<tr class='rented'>";
+        if (list[i].rented == true) {
+            tr = "<tr id='" + list[i].id + "' class='rented'>";
         } else {
-            tr = "<tr>";
-        }
-        tr += "<td><input type='checkbox'></td>";
-        tr += " <td>" + car[i].manufacturer + "</td>";
-        tr += "  <td>" + car[i].model + "</td>";
-        tr += " <td>" + car[i].plateNumber + "</td>";
-        tr += " <td>" + car[i].dayPrice + "</td>";
-        if (car[i].rented == true) {
-            tr += "  <td>yes</td>"
-        } else {
-            tr += "  <td>no</td>"
+            tr = "<tr id='" + list[i].id + "' class='not-rented'>";
         }
 
+        tr += " <td>" + list[i].manufacturer + "</td>";
+        tr += "  <td>" + list[i].model + "</td>";
+        tr += " <td>" + list[i].plateNumber + "</td>";
+        tr += " <td>" + list[i].dayPrice + "</td>";
         tr += " <td><button data-target='#demo" + i + "' class='accordion-toggle' data-toggle='collapse'>details</button></td>";
         tr += "</tr>";
         tr += "  </tr>"
-        tr += "  <tr class='p'>"
-        tr += "  <td colspan='9' class='hiddenRow'>"
+        tr += "  <tr class='hidde-table'>"
+        tr += "  <td colspan='6' class='hiddenRow'>"
         tr += " <div class='accordian-body collapse details-on-car' id='demo" + i + "'>"
         tr += " <div class='detail-buttons'>"
-        tr += "<button class='edit-btn'>Edit </button>"
-        tr += "<button>History </button>"
+        tr += "<button onclick='generateEditForm(" + i + ")' class='edit-btn'>Edit </button>"
+        tr += "<button class='history-btn' onclick='generateHistory(" + i + ") '>History</button>"
         tr += " <div class='panels'>"
         tr += "<div class='left row-panel'>"
-        tr += "<p>Manufacturing Year</p>"
-        tr += "<p>Number of seats</p>"
-        tr += "</div>"
+        tr += " <table><tr><th>Manufacturing Year:</th><td>" + list[i].manufacturingYear + " </td></tr>"
+        tr += "<tr><th>Seats:</th><td>" + list[i].capacity + " </td></tr>"
+        tr += "<tr><th>Price for a day:</th><td>" + list[i].dayPrice + "$ </td></tr>"
+        tr += "<tr><th>Number of seats:</th><td>" + list[i].capacity + "</td></tr></table></div>"
         tr += "<div class='right row-panel'>"
-        tr += "<p>Rented Date From</th>"
-        tr += "<p>Rented Date To</p>"
-        tr += "<p>Days left on lease</p>"
+
+        if ((list[i].rentHistory[0] != null || undefined) && list[i].rented == true) {
+
+            let daysLeft = (list[i].rentHistory[0].dateTo.getTime() - new Date().getTime())
+            let daysLeftOnLease = Math.floor(daysLeft / (24 * 60 * 60 * 1000))
+
+            tr += "<table><tr><th>Rented?</th> <td> Yes </td> </tr><tr><th>Rented Date From</th><td>" + list[i].rentHistory[0].dateFrom.getFullYear() + "-" + (list[i].rentHistory[0].dateFrom.getMonth() + 1) + "-" + (list[i].rentHistory[0].dateFrom.getDate()) + " </td></tr>"
+            tr += "<tr><th>Rented Date to</th><td>" + list[i].rentHistory[0].dateTo.getFullYear() + "-" + (list[i].rentHistory[0].dateTo.getMonth() + 1) + "-" + (list[i].rentHistory[0].dateTo.getDate()) + " </td></tr>"
+            tr += "<tr><th>Days untill return:</th> <td> " + daysLeftOnLease + " </td> </tr>"
+            tr += "</table>"
+        }
+
         tr += "</div>"
         tr += "</div>"
         tr += "<div class='button-panels-bottom panels'>"
-
         tr += "<div class='left-bottom-row-panel'>"
-        tr += "<button>Delete </button>"
+        tr += "<button class='delete-btn' onClick='deleteCar(" + i + ")'>Delete </button>"
         tr += "</div>"
         tr += "<div class='right-bottom-row-panel'>"
-        tr += "<button>Rent/Return </button>"
+        tr += "<button class='rent-btn' onclick='rentUnrentCar(" + list[i].id + ")'>Rent/Return </button>"
         tr += "</div>"
         tr += " </div>"
         tr += " </div>"
@@ -230,127 +121,353 @@ function generateList() {
         tbody.innerHTML += tr;
     }
 }
-// on page load?
-generateList();
 
+generateList(car);
+
+function deleteList() {
+    let tableBody = document.getElementById('tableBody');
+    while (tableBody.firstChild) {
+        tableBody.firstChild.remove()
+    }
+}
 
 function addNewCar() {
-
-    console.log("add new car!")
-
-
     let carMaker = document.getElementById("car-maker").value;
     let carModel = document.getElementById("car-model").value
     let carPlate = document.getElementById("car-plate").value
     let carPrice = document.getElementById("price-per-day").value
     let carYear = document.getElementById("manuf-year").value
     let carSeats = document.getElementById("seat-number").value
-    let carId = uniqueId + 1;
 
-    console.log(uniqueId)
+    if (carMaker && carModel && carPlate && carPrice && carYear && carSeats != (null || undefined || "")) {
+        let carId = uniqueId + 1;
+        let newCar = {
+            "id": carId,
+            "manufacturer": carMaker,
+            "model": carModel,
+            "manufacturingYear": carYear,
+            "capacity": carSeats,
+            "dayPrice": carPrice,
+            "plateNumber": carPlate,
+            "rented": false,
+            rentHistory: []
+        };
+        uniqueId = carId;
+        car.push(newCar);
+        //clear all the inputs 
+        resetInputs('new-car-inputs', 6)
+        //turn off modal
+        deleteList()
+        generateList(car)
+        closeModal(newCarModal)
 
-    let newCar = {
-        "id": carId,
-        "manufacturer": carMaker,
-        "model": carModel,
-        "manufacturingYear": new Date(carYear),
-        "capacity": carSeats,
-        "dayPrice": carPrice,
-        "rentedFrom": new Date(),
-        "rentedTo": new Date(),
-        //extra stuff
-        "plateNumber": carPlate,
-        "rented": false,
-        rentHistory: []
-    };
-    uniqueId = carId;
-    console.log(newCar);
-    //ideto i cars nauja iraso bloka ir pasiusti i backa issaugoti, bet koks backas?
-    //unique id: number bigger than the last, check for dublicates.
-    car.push(newCar);
-    console.log(car)
-    let tbody = document.getElementById("tableBody");
-
-    //gather info with modal probably
-
-
-    let tr = "<tr>";
-    tr += "<td><input type='checkbox'></td>";
-    tr += " <td>" + newCar.manufacturer + "</td>";
-    tr += "  <td>" + newCar.model + "</td>";
-    tr += " <td>" + newCar.plateNumber + "</td>";
-    tr += " <td>" + newCar.dayPrice + "</td>";
-    tr += "  <td>no</td>"
-    tr += " <td><button data-target='#demo" + newCar.id + "' class='accordion-toggle' data-toggle='collapse'>details</button></td>";
-    tr += "</tr>";
-    tr += "  </tr>"
-    tr += "  <tr class='p'>"
-    tr += "  <td colspan='9' class='hiddenRow'>"
-    tr += " <div class='accordian-body collapse details-on-car' id='demo" + newCar.id + "'>"
-    tr += " <div class='detail-buttons'>"
-    tr += "<button>Edit </button>"
-    tr += "<button>History </button>"
-    tr += " <div class='panels'>"
-    tr += "<div class='left row-panel'>"
-    tr += "<p>Manufacturing Year</p>"
-    tr += "<p>Number of seats</p>"
-    tr += "</div>"
-    tr += "<div class='right row-panel'>"
-    tr += "<p>Rented Date From</th>"
-    tr += "<p>Rented Date To</p>"
-    tr += "<p>Days left on lease</p>"
-    tr += "</div>"
-    tr += "</div>"
-    tr += "<div class='button-panels-bottom panels'>"
-    tr += "<div class='left-bottom-row-panel'>"
-    tr += "<button>Delete </button>"
-    tr += "</div>"
-    tr += "<div class='right-bottom-row-panel'>"
-    tr += "<button>Rent/Return</button></div></div></div></td></tr>"
-
-
-    tbody.innerHTML += tr;
-
-    //clear all the inputs
-
-    for (i = 0; i < 6; i++) {
-        document.getElementsByClassName("new-car-inputs")[i].value = null;
+    } else {
+        alert("Please fill in all the fields!")
     }
 
-    //turn off modal
-    let modal = document.getElementById("newCar");
-    modal.style.display = "none";
+
+
 
 }
 
 function editCar() {
-    // new page? or just a modal?
+    let target = document.getElementById("edit-car-submit").className
+    let carIndex = target.replace(/\D/g, '')
+    let carMkr = document.getElementById('edit-car-maker').value
+    let carMdl = document.getElementById('edit-car-model').value
+    let carPlate = document.getElementById('edit-car-plate').value
+    let carPrice = document.getElementById('edit-price-per-day').value
+    let carMnfYear = document.getElementById('edit-manuf-year').value
+    let carSeats = document.getElementById('edit-seat-number').value
+    let lastRentFrom = document.getElementById('edit-rent-from').valueAsDate
+    let lastRentto = document.getElementById('edit-rent-to').valueAsDate
+
+    if (carMkr && carMdl && carPlate && carPrice && carMnfYear && carSeats && lastRentFrom && lastRentto != (null || undefined || "")) {
+
+        if (carMkr !== car[carIndex].manufacturer) {
+
+            car[carIndex].manufacturer = carMkr;
+
+        } else {}
+
+        if (carMdl !== car[carIndex].model) {
+            car[carIndex].model = carMdl;
+        } else {}
+
+        if (carPlate !== car[carIndex].plateNumber) {
+            car[carIndex].plateNumber = carPlate;
+        } else {}
+
+        if (carPrice != car[carIndex].dayPrice) {
+            car[carIndex].dayPrice = carPrice;
+        } else {}
+
+        if (carMnfYear != car[carIndex].manufacturingYear) {
+            car[carIndex].manufacturingYear = carMnfYear;
+        } else {}
+
+        if (carSeats != car[carIndex].capacity) {
+            car[carIndex].capacity = carSeats;
+        } else {}
+        if (car[carIndex].rentHistory[0] != undefined || null) {
+
+            if (lastRentFrom.getTime() != car[carIndex].rentHistory[0].dateFrom.getTime()) {
+                car[carIndex].rentHistory[0].dateFrom = lastRentFrom;
+            } else {}
+            if (lastRentto.getTime() != car[carIndex].rentHistory[0].dateTo.getTime()) {
+                car[carIndex].rentHistory[0].dateTo = lastRentto;
+            } else {}
+
+        }
+        resetInputs('edit-car-inputs', 6)
+        deleteList();
+        generateList(car); {
+            document.getElementById('edit-rent-from').style.display = "block"
+            document.getElementById('edit-rent-to').style.display = "block"
+        }
+        closeModal(editCarModal)
+    } else {
+        alert("Please fill in all the fields!")
+    }
 
 }
 
-function editCarState() {
-    // and make it visible that is rented or not
+function rentUnrentCar(carId) {
+    let targetCar = car.findIndex(({
+        id
+    }) => id == carId)
+
+    if (car[targetCar].rented == true) {
+        let confirmedUnrent = confirm("Are you sure you want to finish this rent period?");
+        if (confirmedUnrent == true) {
+            generateEndRent(targetCar)
+            callModal(rentCarFinish)
+        }
+    } else {
+        callRentModal(targetCar)
+    }
 }
 
-function addToHistory(params) {
+function generateEndRent(target) {
+    let endDate = car[target].rentHistory[0].dateTo
+    document.getElementById("end-rent-to").valueAsDate = endDate
+    document.getElementById('end-rent-button').className = target + "end"
+}
+
+function generateRentForm(carIndex) {
+    let carManuf = car[carIndex].manufacturer
+    let carModel = car[carIndex].model
+    let carPlate = car[carIndex].plateNumber
+    let carId = car[carIndex].id
+    document.getElementById('manuf-span').innerHTML = carManuf;
+    document.getElementById('model-span').innerHTML = carModel;
+    document.getElementById('car-plate-span').innerHTML = carPlate;
+    document.getElementById('manuf-span').className = ("car" + carId);
+    document.getElementById('start-rent-price').value = car[carIndex].dayPrice
+
+}
+
+function startCarRent() {
+    let from = document.getElementById("start-rent-from").value;
+    let to = document.getElementById("start-rent-to").value;
+    let carId = document.getElementById("manuf-span").className
+    let dayPrice = document.getElementById("start-rent-price").value
+    let days = document.getElementById('start-rent-total-days').value
+    carId = carId.replace(/\D/g, '')
+    let targetCar = car.findIndex(({
+        id
+    }) => id == carId)
+
+
+
+    //check for empty
+    if (from && to && dayPrice && days != (null || undefined || "")) {
+
+
+        document.getElementById(carId).className = "rented"
+        document.getElementById("manuf-span").className = ""
+        car[targetCar].rented = true
+        addToHistory(targetCar, from, to, dayPrice, days)
+        //reset fields
+        resetInputs("start-rent-inputs", 6)
+        //close modal
+        deleteList()
+        generateList(car)
+        closeModal(rentCarModal)
+
+    } else {
+        alert("Please fill all the fields")
+    }
+
+
+}
+
+function fixRentPrice() {
+
+    let newRentStart = document.getElementById("start-rent-from").valueAsDate
+    let newRentTo = document.getElementById("start-rent-to").valueAsDate
+    let rentPricePerDay = parseInt(document.getElementById("start-rent-price").value)
+    let rentedMs
+    let rentedDays
+    let rentTotal
+    let rentTotalWithVat
+    if ((newRentStart != null) && (newRentTo != null)) {
+        rentedMs = newRentTo.getTime() - newRentStart.getTime()
+        rentedDays = Math.floor(rentedMs / (24 * 60 * 60 * 1000))
+        rentTotal = parseInt(rentedDays) * parseInt(rentPricePerDay)
+        rentTotalWithVat = parseInt(rentTotal) + (parseInt(rentTotal) * 0.21)
+        document.getElementById("start-rent-total").value = rentTotal
+        document.getElementById("start-rent-total-vat").value = rentTotalWithVat
+        document.getElementById('start-rent-total-days').value = rentedDays
+    }
+}
+
+function resetInputs(targetClass, resets) {
+    for (i = 0; i < resets; i++) {
+        if (document.getElementsByClassName(targetClass)[i].value != null || undefined) {
+            document.getElementsByClassName(targetClass)[i].value = null;
+        } else {
+
+        }
+    }
+}
+
+function addToHistory(target, from, to, price, days) {
     // add to specific part of arrObj a history block.
+    let newHistory = {
+        "dateFrom": new Date(from),
+        "dateTo": new Date(to),
+        "daysRented": days,
+        "milesDriven": "",
+        "dayPrice": price,
+    }
+    car[target].rentHistory.unshift(newHistory)
 }
 
-function showHistory(params) {
-    // call a modal? open in new window?
+function finishRentHistory() {
+    //miles and rent end
+    let target = document.getElementById("end-rent-button").className
+    let carIndex = target.replace(/\D/g, '')
+    let endDate = document.getElementById("end-rent-to").valueAsDate
+    let miles = document.getElementById('end-rent-miles').value
+
+
+    if (endDate && miles != (null || undefined || "")) {
+        car[carIndex].rentHistory[0].milesDriven = miles
+        car[carIndex].rented = false
+        document.getElementById(car[carIndex].id).className = "not-rented"
+
+        if (endDate.getTime() != car[carIndex].rentHistory[0].dateTo.getTime()) {
+            car[carIndex].rentHistory[0].dateTo = endDate
+        }
+        //reset fields
+        resetInputs('end-car-rent', 2)
+        //close modal
+        deleteList();
+        generateList(car);
+        closeModal(rentCarFinish)
+
+
+    } else {
+        alert("Please fill in all the fields!")
+    }
+
 }
 
-// extra functions not included in the task
+function generateEditForm(carIndex) {
+    //generate info
+    document.getElementById('edit-car-maker').value = car[carIndex].manufacturer
+    document.getElementById('edit-car-submit').className = "edit" + carIndex
+    document.getElementById('edit-car-model').value = car[carIndex].model
+    document.getElementById('edit-manuf-year').value = car[carIndex].manufacturingYear
+    document.getElementById('edit-seat-number').value = car[carIndex].capacity
+    document.getElementById('edit-price-per-day').value = car[carIndex].dayPrice
+    document.getElementById('edit-car-plate').value = car[carIndex].plateNumber
+    //Change this rent time?
+    if (car[carIndex].rentHistory[0] != undefined || null) {
+        document.getElementById('edit-rent-from').valueAsDate = car[carIndex].rentHistory[0].dateFrom
+        document.getElementById('edit-rent-to').valueAsDate = car[carIndex].rentHistory[0].dateTo
+    } else {
+        document.getElementById('edit-rent-from').style.display = "none"
+        document.getElementById('edit-rent-to').style.display = "none"
+    }
 
-function deleteCar() {
-    // delete from arrObj a specific object
+
+    //call modal
+    callModal(editCarModal)
 }
 
-function massDelete(params) {
+function generateHistory(carIndex) {
+    let table = document.getElementById("history-table")
 
+    for (let i = 0; i < car[carIndex].rentHistory.length; i++) {
+
+        let tr = "<tr>"
+        tr += "<th>Rent date - From:</th>"
+        tr += "<td>  " + car[carIndex].rentHistory[i].dateFrom.getFullYear() + "-" + (car[carIndex].rentHistory[i].dateFrom.getMonth() + 1) + "-" + (car[carIndex].rentHistory[i].dateFrom.getDate()) + " </td>"
+        tr += "</tr>"
+        tr += "<tr>"
+        tr += "<th>Rent date - To:</th>"
+        tr += "<td>" + car[carIndex].rentHistory[i].dateTo.getFullYear() + "-" + (car[carIndex].rentHistory[i].dateTo.getMonth() + 1) + "-" + (car[carIndex].rentHistory[i].dateTo.getDate()) + "</td>"
+        tr += "</tr>"
+        tr += "<tr>"
+        //count days
+        let totalDays = (car[carIndex].rentHistory[i].dateTo.getTime() - car[carIndex].rentHistory[i].dateFrom.getTime())
+        let totalDaysNum = Math.floor(totalDays / (24 * 60 * 60 * 1000))
+        tr += "<th>Total days rented:</th>"
+        tr += "<td>" + totalDaysNum + "</td>"
+        tr += "</tr>"
+        tr += "<tr>"
+        tr += "<th>Miles:</th>"
+        tr += "<td> " + car[carIndex].rentHistory[i].milesDriven + "</td>"
+        tr += "</tr>"
+        tr += "<tr>"
+        tr += "<th>Preice per day:</th>"
+        tr += "<td>" + car[carIndex].rentHistory[i].dayPrice + " </td>"
+        tr += "</tr>"
+        tr += "<tr>"
+
+        //count total
+        let total = parseInt(car[carIndex].rentHistory[i].dayPrice) * totalDaysNum
+        tr += "<th>Total:</th>"
+        tr += "<td>" + total + "</td>"
+        tr += "</tr>"
+        tr += "<tr>"
+
+        //count total With wat
+        let totalVat = total + (total * 0.21)
+        tr += "<th>Total+VAT:</th>"
+        tr += "<td>" + totalVat + "</td>"
+        tr += "</tr>"
+
+        tr += "<tr>"
+        tr += "<th colspan = '2'><hr></th>"
+        tr += "</tr>"
+        table.innerHTML += tr
+    }
+
+
+    //show modal
+    callModal(historyCarModal);
 }
 
-function selectAll() {
+function deleteGeneratedHistory() {
+    //remove everything from table
+    let table = document.getElementById("history-table");
+
+    table.innerHTML = ''
+    //close modal
+
+    closeModal(historyCarModal)
+}
+
+
+function deleteCar(target) {
+    let confirmDelete = confirm("Are you sure you want to delete this car?");
+    if (confirmDelete == true) {
+        car.splice(target, 1);
+        deleteList()
+        generateList(car)
+    }
 
 }
-//duplicate alert?

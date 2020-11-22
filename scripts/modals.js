@@ -1,30 +1,34 @@
-let modal = document.getElementById("newCar");
+let modal = document.getElementsByClassName("modal")
+let newCarModal = document.getElementById("newCar")
+let editCarModal = document.getElementById("editCar")
+let historyCarModal = document.getElementById("carHistory")
+let rentCarModal = document.getElementById("carRent")
+let rentCarFinish = document.getElementById("carRentFinish")
 
-// Get the button that opens the modal
-let btn = document.getElementById("new-car-btn");
 
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
+function callModal(target) {
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  console.log("click");
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    console.log("clicky");
-    modal.style.display = "none";
+  if (target == newCarModal) {
+    newCarModal.style.display = "block"
+  } else if (target == editCarModal) {
+    editCarModal.style.display = "block"
+  } else if (target == historyCarModal) {
+    historyCarModal.style.display = "block"
+  } else if (target == rentCarModal) {
+    rentCarModal.style.display = "block"
+  } else if (target == rentCarFinish) {
+    rentCarFinish.style.display = "block"
   }
 }
 
+function callRentModal(params) {
+  console.log("call rent" + params)
+  generateRentForm(params)
+  callModal(rentCarModal)
 
+}
 
-// Perdaryti modalus
+function closeModal(target) {
+  target.style.display = "none";
+
+}

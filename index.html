@@ -1,126 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JiffyCar</title>
-    <!-- css -->
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
 
-    <!-- css grid? -->
-    <!-- mygtukai eilutese ar geriau tik pazymeti -->
-    <!-- table rows with accordion? -->
-    <!-- add a cute + button for "New" on the go? -->
 
     <header>
         <h1 class="title">JiffyCar</h1>
     </header>
-
-
-
     <div class="main-body">
         <div class="side-panel left"></div>
         <div class="content">
-            <!-- mass buttons :mass delete, new, edit -->
-            <!-- mobile needs better layout than the classical one, accordion is very needed here -->
-            <!-- lots of cars? add pagination? -->
-            <!-- add filters and/or search? -->
-            <!-- filters- good idea: show rented cars, cars by maker n stuffs -->
-            <!-- bootstrap labai lagina ar tiesiog messy animation? -->
-            <!-- edit in rows? -->
-            <!-- confirmation for deletes -->
-            <!-- when selected delete button appeasr if away from top -->
-
-            <button class="delete">Delete</button>
-            <button id="new-car-btn" class="new" >New</button>
-            <button class="new">Filter</button>
-            <!--select wanted filter, filtyer by model, price, rented or not, etc-->
-            <button class="new">Search</button> <!-- Search by word-->
-            <!-- add sorting! -->
-            <table class="table table-sm  table-hover" style="border-collapse:collapse;">
+            <button id="new-car-btn" onclick="callModal(newCarModal)" class="new">New</button>
+            <table class="table table-sm .main-table" style="border-collapse:collapse;">
                 <thead>
                     <tr>
-                        <!--too much stuff, minimise  -->
-                        <th><input type="checkbox" class="sellect-all-checkbox"></th>
-                        <!--select all-->
                         <th>Car Maker</th>
                         <th>Car Model</th>
                         <th>Car Plate</th>
                         <th>Price per day</th>
-                        <!-- -->
-                        <!-- <th>Rented Date From</th>
-                        <th>Rented Date To</th> -->
-                        <!-- or -->
-                        <th>Rented</th>
-                        <!--checkbox -->
-                        <th>details</th>
-
-
-
+                        <th></th>
                     </tr>
                 </thead>
 
                 <tbody id="tableBody">
 
-                    <!-- basic premise so far, this is the row that will be generated -->
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>Toyota</td>
-                        <td>Yaris</td>
-                        <td>ABC-123</td>
-                        <td> 5$ </td>
-                        <td>3 days</td>
-                        <td><button data-target="#demo1" class="accordion-toggle"
-                                data-toggle="collapse">details</button></td>
-                    </tr>
-                    <tr class="p">
-                        <td colspan="9" class="hiddenRow">
-                            <div class="accordian-body collapse details-on-car" id="demo1">
-                                <div class="detail-buttons">
-                                    <button class="edit-btn" >Edit </button>
-                                    <button>History </button>
 
-
-
-                                    <div class="panels">
-                                        <div class="left row-panel">
-                                            <p>Manufacturing Year</p>
-                                            <p>Number of seats</p>
-                                        </div>
-                                        <div class="right row-panel">
-
-                                            <p>Rented Date From</th>
-                                                <p>Rented Date To</p>
-                                                <p>Days left on lease</p>
-                                        </div>
-                                    </div>
-                                    <div class="button-panels-bottom panels">
-
-                                        <div class="left-bottom-row-panel">
-                                            <button>Delete </button>
-                                        </div>
-                                        <div class="right-bottom-row-panel">
-                                            <button>Rent/Return </button>
-                                        </div>
-                                    </div>
-                                </div>
-                        </td>
-                    </tr>
-
-
-
-
-                    <!-- when rented do thing -->
-                    <!-- show when the car has to be reurned, how many daus left on rent -->
-                    <!-- seperate button for when a car is rented? no need to edit the main info then -->
-                    <!-- 2 comumns, button  top right corner -->
 
 
 
@@ -130,97 +43,208 @@
             </table>
         </div>
         <div class="side-panel right"></div>
-
     </div>
 
-<!-- new car modal -->
-<div id="newCar" class="new-modal modal">
-    <div class="modal-content new-car-modal">
-      <span class="close">&times;</span>
-     <!-- content  -->
-     <form>
-         <table>
-             <tr>
-                 <td> <label for="car-maker">Car Maker:</label></td>
-                 <td> <input type="text"  class="new-car-inputs"id="car-maker" name="car-maker"> </td>
-             </tr>
-             <tr>
-                <td><label for="car-model">Car Model:</label></td>
-                <td><input type="text"  class="new-car-inputs"id="car-model" name="car-model"></td>
-            </tr>
-            <tr>
-                <td><label for="car-plate">Car Plate:</label></td>
-                <td><input type="text"  class="new-car-inputs"id="car-plate" name="car-plate"></td>
-            </tr>
-            <tr>
-                <td><label for="price-per-day">Price per Day:</label></td>
-                <td><input type="number" class="new-car-inputs" id="price-per-day" name="price-per-day"></td>
-            </tr>
-            <tr>
-                <td><label for="manuf-year">Manufacturing Year:</label></td>
-                <td><input type="date" class="new-car-inputs" id="manuf-year" name="manuf-year"></td>
-            </tr>
-            <tr>
-                <td><label for="seat-number">Number of seats:</label></td>
-                <td><input type="number" class="new-car-inputs" id="seat-number" name="seat-number"></td>
-            </tr>
-        
-            <tr>
-                <td colspan="2"> <input id="new-car-submit" onclick="addNewCar()" type="button" value="Submit"></td>
-              
-            </tr>
-         </table>
-              
-               
-      </form>
+    <!-- new car modal -->
+    <div id="newCar" onclick="closeModal(newCarModal);resetInputs('new-car-inputs',6)" class=" modal">
+        <div onclick="event.stopPropagation();" class="modal-content new-car-modal">
+            <span onclick="closeModal(newCarModal);resetInputs('new-car-inputs',6)" class="close">&times;</span>
+            <form>
+                <table>
+                    <tr>
+                        <td> <label for="car-maker">Car Maker:</label></td>
+                        <td> <input type="text" class="new-car-inputs" id="car-maker" name="car-maker"> </td>
+                    </tr>
+                    <tr>
+                        <td><label for="car-model">Car Model:</label></td>
+                        <td><input type="text" class="new-car-inputs" id="car-model" name="car-model"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="car-plate">Car Plate:</label></td>
+                        <td><input type="text" class="new-car-inputs" id="car-plate" name="car-plate"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="price-per-day">Price per Day:</label></td>
+                        <td><input type="number" min="0" class="new-car-inputs" id="price-per-day" name="price-per-day">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="manuf-year">Manufacturing Year:</label></td>
+                        <td><input type="number" min="1800" class="new-car-inputs" id="manuf-year" name="manuf-year">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="seat-number">Number of seats:</label></td>
+                        <td><input type="number" min="1" class="new-car-inputs" id="seat-number" name="seat-number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <input id="new-car-submit" onclick="addNewCar()" type="button" value="Submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
 
-
+        </div>
     </div>
-  
-  </div>
-
-<!-- edit car modal -->
-<div id="editCar" class="edit-modal modal">
-    <div class="modal-content edit-car-modal">
-      <span class="close">&times;</span>
-     <!-- content  -->
-       edited
-            
-      </form>
 
 
+    <!-- edit car modal -->
+    <div id="editCar" onclick="closeModal(editCarModal);" class="modal">
+        <div onclick="event.stopPropagation();" class="modal-content edit-car-modal">
+            <span onclick="closeModal(editCarModal)" class="close">&times;</span>
+            <form>
+                <table>
+                    <tr>
+                        <td> <label for="car-maker">Car Maker:</label></td>
+                        <td> <input type="text" class="edit-car-inputs" id="edit-car-maker" name="edit-car-maker"> </td>
+                    </tr>
+                    <tr>
+                        <td><label for="car-model">Car Model:</label></td>
+                        <td><input type="text" class="edit-car-inputs" id="edit-car-model" name="edit-car-model"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="car-plate">Car Plate:</label></td>
+                        <td><input type="text" class="edit-car-inputs" id="edit-car-plate" name="edit-car-plate"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="price-per-day">Price per Day:</label></td>
+                        <td><input type="number" min="0" class="edit-car-inputs" id="edit-price-per-day"
+                                name="edit-price-per-day"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="manuf-year">Manufacturing Year:</label></td>
+                        <td><input type="number" min="1800" class="edit-car-inputs" id="edit-manuf-year"
+                                name="edit-manuf-year">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="seat-number">Number of seats:</label></td>
+                        <td><input type="number" min="1" class="edit-car-inputs" id="edit-seat-number"
+                                name="edit-seat-number">
+                        </td>
+                    </tr>
+                    <!-- edit last rent period -->
+                    <tr>
+                        <th colspan="2">
+                            <h2> Last rent period</h2>
+                        </th>
+
+                    </tr>
+                    <tr>
+                        <td><label for="edit-rent-from">Renting from:</label></td>
+                        <td><input type="date" class="edit-car-inputs" id="edit-rent-from" name="seat-number"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="edit-rent-to">Rented until:</label></td>
+                        <td><input type="date" class="eedit-car-inputs" id="edit-rent-to" name="edit-rent-to"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <input id="edit-car-submit" onclick="editCar()" type="button" value="Submit">
+                        </td>
+
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
+    <!-- history modal -->
+    <div id="carHistory" onclick="deleteGeneratedHistory();" class="modal">
+        <div onclick="event.stopPropagation();" class="modal-content car-history-modal">
+            <span onclick="deleteGeneratedHistory()" class="close">&times;</span>
+            <!-- content  -->
+            <table id="history-table">
+
+
+            </table>
+        </div>
     </div>
-<!-- history modal -->
-<div id="carHistory" class="history-modal modal">
-    <div class="modal-content car-history-modal">
-      <span class="close">&times;</span>
-     <!-- content  -->
-       <table>
-           <tr>
-               <th>Rented from:</th>
-           </tr>
-       </table>
-     
-      </form>
 
+    <!-- make a different funtion for rent modal -->
+    <!-- rent/finish rent modal -->
+    <div id="carRent" onclick="closeModal(rentCarModal);resetInputs('start-rent-inputs',6) " class="modal">
+        <div onclick="event.stopPropagation();" class="modal-content car-rent-modal">
+            <span onclick="closeModal(rentCarModal);resetInputs('start-rent-inputs',6)" class="close">&times;</span>
+            <!-- content  -->
+            <div class="car-rent-title">
+                <h2>You are renting:</h2>
+                <span id="manuf-span"></span>
+                <span id="model-span"></span>,
+                <span id='car-plate-span'></span>
+            </div>
+            <table>
 
-      <!-- rent/finish rent modal -->
-<div id="carHistory" class="history-modal modal">
-    <div class="modal-content car-history-modal">
-      <span class="close">&times;</span>
-     <!-- content  -->
-       <table>
-           <tr>
-               <th>Rented from:</th>
-           </tr>
-       </table>
-     
-      </form>
+                <tr>
+                    <th>Rented from:</th>
+                    <td> <input onchange="fixRentPrice()" class="start-rent-inputs" id="start-rent-from" type="date">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Rented to:</th>
+                    <td> <input onchange="fixRentPrice()" class="start-rent-inputs" id="start-rent-to" type="date"></td>
+                </tr>
+                <tr>
+                    <th>Price for a day:</th>
+                    <td> <input onchange="fixRentPrice()" class="start-rent-inputs" id="start-rent-price" type="number"
+                            min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Days booked:</th>
+                    <td> <input disabled id="start-rent-total-days" class="start-rent-inputs" min="1" type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Total:</th>
+                    <td> <input disabled min="0" id="start-rent-total" class="start-rent-inputs" type="number"></td>
+                </tr>
+                <tr>
+                    <th>Total with VAT:</th>
+                    <td> <input disabled id="start-rent-total-vat" min="0" class="start-rent-inputs" type="number"></td>
+                </tr>
+                <tr>
+                    <td><button class="car-rent-btn" onclick="startCarRent()">Rent!</button>
+                    </td>
 
+                </tr>
 
+            </table>
+        </div>
     </div>
+
+
+    <!-- finish rent modal -->
+    <div id="carRentFinish" onclick="closeModal(rentCarFinish);resetInputs('end-car-rent',2)" class="modal">
+        <div onclick="event.stopPropagation();" class="modal-content car-rent-end-modal">
+            <span onclick="closeModal(rentCarFinish);resetInputs('end-car-rent',2)" class="close">&times;</span>
+            <!-- content  -->
+            <div class="car-rent-title">
+                <h2>Please fill in the fields:</h2>
+            </div>
+            <table>
+
+                <tr>
+                    <th>Rent end date:</th>
+                    <td> <input onchange="fixRentPrice()" class="end-car-rent" id="end-rent-to" type="date"></td>
+                </tr>
+                <tr>
+                    <th>Miles driven:</th>
+                    <td> <input class="end-car-rent" id="end-rent-miles" min="0" type="number"></td>
+                </tr>
+                <tr>
+                    <td><button id="end-rent-button" onclick="finishRentHistory()">Finish!</button>
+                    </td>
+
+                </tr>
+
+            </table>
+        </div>
     </div>
+
+
+
+
+
     <!-- js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -228,9 +252,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
-     <script src="scripts/modals.js"></script>
+    <script src="scripts/modals.js"></script>
     <script src="scripts/mainScript.js"></script>
-   
+
 </body>
 
 </html>
