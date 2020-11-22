@@ -5,9 +5,6 @@ let car = [{
         "manufacturingYear": 2000,
         "capacity": 5,
         "dayPrice": 6,
-        // "rentedFrom": new Date('2000-01-01'), //delete theese and use history?
-        // "rentedTo": new Date('2000-02-01'),
-        //extra stuff
         "plateNumber": "abc123",
         "rented": true,
         rentHistory: [{
@@ -33,7 +30,6 @@ let car = [{
         "manufacturingYear": 2020,
         "capacity": 5,
         "dayPrice": 26,
-        //extra stuff
         "plateNumber": "C00L",
         "rented": false,
         rentHistory: [{
